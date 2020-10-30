@@ -24,6 +24,7 @@ namespace zVirtualDesktop
 
         public List<Window> windows = new List<Window>();
 
+        private Dictionary<int, IntPtr> lastForegroundWindows = new Dictionary<int, IntPtr>();
 
         public Hotkey keyGoTo01 = new Hotkey(1);
         public Hotkey keyGoTo02 = new Hotkey(2);
@@ -1348,6 +1349,9 @@ namespace zVirtualDesktop
                 }
                 else
                 {
+                    IntPtr hWnd = PInvoke.GetForegroundWindow();
+                    lastForegroundWindows[i] = hWnd;
+
                     int diff = Math.Abs(i - desktopNumber);
                     if (i < desktopNumber)
                     {
@@ -1365,6 +1369,10 @@ namespace zVirtualDesktop
                     }
 
                     current.Switch();
+                    if (lastForegroundWindows.ContainsKey(desktopNumber))
+                    {
+                        PInvoke.SetForegroundWindow(lastForegroundWindows[desktopNumber]);
+                    }
                    
                 }
 
@@ -1375,10 +1383,6 @@ namespace zVirtualDesktop
                     ex.Message + Environment.NewLine + 
                     ex.Source + "::" + ex.TargetSite.Name);
             }
-
-        
-
-
         }
 
         #region "Settings"
