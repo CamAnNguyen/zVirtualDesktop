@@ -32,58 +32,58 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "Navigate to Desktop 1",
-            "WIN+CTRL+Numpad1"}, -1);
+            "ALT+1"}, -1);
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
             "Navigate to Desktop 2",
-            "WIN+CTRL+Numpad2"}, -1);
+            "ALT+2"}, -1);
             System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
             "Navigate to Desktop 3",
-            "WIN+CTRL+Numpad3"}, -1);
+            "ALT+3"}, -1);
             System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
             "Navigate to Desktop 4",
-            "WIN+CTRL+Numpad4"}, -1);
+            "ALT+4"}, -1);
             System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
             "Navigate to Desktop 5",
-            "WIN+CTRL+Numpad5"}, -1);
+            "ALT+5"}, -1);
             System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
             "Navigate to Desktop 6",
-            "WIN+CTRL+Numpad6"}, -1);
+            "ALT+6"}, -1);
             System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem(new string[] {
             "Navigate to Desktop 7",
-            "WIN+CTRL+Numpad7"}, -1);
+            "ALT+7"}, -1);
             System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem(new string[] {
             "Navigate to Desktop 8",
-            "WIN+CTRL+Numpad8"}, -1);
+            "ALT+8"}, -1);
             System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem(new string[] {
             "Navigate to Desktop 9",
-            "WIN+CTRL+Numpad9"}, -1);
+            "ALT+9"}, -1);
             System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem(new string[] {
             "Move to Desktop 1",
-            "WIN+ALT+Numpad1"}, -1);
+            "ALT+SHIFT+1"}, -1);
             System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem(new string[] {
             "Move to Desktop 2",
-            "WIN+ALT+Numpad2"}, -1);
+            "ALT+SHIFT+2"}, -1);
             System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem(new string[] {
             "Move to Desktop 3",
-            "WIN+ALT+Numpad3"}, -1);
+            "ALT+SHIFT+3"}, -1);
             System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem(new string[] {
             "Move to Desktop 4",
-            "WIN+ALT+Numpad4"}, -1);
+            "ALT+SHIFT+4"}, -1);
             System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem(new string[] {
             "Move to Desktop 5",
-            "WIN+ALT+Numpad5"}, -1);
+            "ALT+SHIFT+5"}, -1);
             System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem(new string[] {
             "Move to Desktop 6",
-            "WIN+ALT+Numpad6"}, -1);
+            "ALT+SHIFT+6"}, -1);
             System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem(new string[] {
             "Move to Desktop 7",
-            "WIN+ALT+Numpad7"}, -1);
+            "ALT+SHIFT+7"}, -1);
             System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem(new string[] {
             "Move to Desktop 8",
-            "WIN+ALT+Numpad8"}, -1);
+            "ALT+SHIFT+8"}, -1);
             System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem(new string[] {
             "Move to Desktop 9",
-            "WIN+ALT+Numpad9"}, -1);
+            "ALT+SHIFT+9"}, -1);
             System.Windows.Forms.ListViewItem listViewItem19 = new System.Windows.Forms.ListViewItem(new string[] {
             "Move to Desktop 1 & Follow",
             "WIN+CTRL+ALT+Numpad1"}, -1);
