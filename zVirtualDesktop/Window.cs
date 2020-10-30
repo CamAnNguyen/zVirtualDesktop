@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -71,8 +72,16 @@ namespace zVirtualDesktop
             {
                 try
                 {
-                    return GetDesktopNumber(VirtualDesktop.FromHwnd(hWnd).Id);
-                }catch
+                    var virtDesk = VirtualDesktop.FromHwnd(hWnd);
+                    if (virtDesk == null)
+                    {
+                        return 0;
+                    }
+                    else
+                    {
+                        return GetDesktopNumber(virtDesk.Id);
+                    }
+                } catch
                 {
                     return 0;
                 }
@@ -87,7 +96,7 @@ namespace zVirtualDesktop
                 try
                 {
                     return ApplicationHelper.GetAppId(hWnd);
-                }catch
+                } catch
                 {
                     return "";
                 }
@@ -132,7 +141,8 @@ namespace zVirtualDesktop
                 try
                 {
                     return System.Diagnostics.Process.GetProcessById((int)GetProcessID());
-                }catch(Exception ex)
+                }
+                catch(Exception ex)
                 {
                     return null;
                 }
@@ -148,9 +158,35 @@ namespace zVirtualDesktop
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occured unpinning the specified window. See additional details below." + Environment.NewLine + Environment.NewLine +
-                    ex.Message + Environment.NewLine +
-                    ex.Source + "::" + ex.TargetSite.Name);
+                MessageBox.Show(
+                    "An error occured while unpinning the specified window. See additional details below." +
+                    Environment.NewLine +
+                    Environment.NewLine +
+                    ex.Message +
+                    Environment.NewLine +
+                    ex.Source +
+                    "::" +
+                    ex.TargetSite.Name);
+            }
+        } 
+
+        public void UnFocus()
+        {
+            try
+            {
+    			SendMessage(Handle, WM_KILLFOCUS, 0, "");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "An error occured while killing focus the specified window. See additional details below." +
+                    Environment.NewLine +
+                    Environment.NewLine +
+                    ex.Message +
+                    Environment.NewLine +
+                    ex.Source +
+                    "::" +
+                    ex.TargetSite.Name);
             }
         } 
 
@@ -162,9 +198,15 @@ namespace zVirtualDesktop
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occured unpinning the specified application. See additional details below." + Environment.NewLine + Environment.NewLine +
-                    ex.Message + Environment.NewLine +
-                    ex.Source + "::" + ex.TargetSite.Name);
+                MessageBox.Show(
+                    "An error occured while unpinning the specified window. See additional details below." +
+                    Environment.NewLine +
+                    Environment.NewLine +
+                    ex.Message +
+                    Environment.NewLine +
+                    ex.Source +
+                    "::" +
+                    ex.TargetSite.Name);
             }
         }
 
@@ -176,9 +218,15 @@ namespace zVirtualDesktop
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occured pinning the specified window. See additional details below." + Environment.NewLine + Environment.NewLine +
-                    ex.Message + Environment.NewLine +
-                    ex.Source + "::" + ex.TargetSite.Name);
+                MessageBox.Show(
+                    "An error occured while pinning the specified window. See additional details below." +
+                    Environment.NewLine +
+                    Environment.NewLine +
+                    ex.Message +
+                    Environment.NewLine +
+                    ex.Source +
+                    "::" +
+                    ex.TargetSite.Name);
             }
         }
 
@@ -190,9 +238,15 @@ namespace zVirtualDesktop
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occured pinning the specified application. See additional details below." + Environment.NewLine + Environment.NewLine +
-                    ex.Message + Environment.NewLine +
-                    ex.Source + "::" + ex.TargetSite.Name);
+                MessageBox.Show(
+                    "An error occured while pinning the specified application. See additional details below." +
+                    Environment.NewLine +
+                    Environment.NewLine +
+                    ex.Message +
+                    Environment.NewLine +
+                    ex.Source +
+                    "::" +
+                    ex.TargetSite.Name);
             }
         }
 
@@ -267,9 +321,15 @@ namespace zVirtualDesktop
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occured moving the specified window. See additional details below." + Environment.NewLine + Environment.NewLine +
-                    ex.Message + Environment.NewLine +
-                    ex.Source + "::" + ex.TargetSite.Name);
+                MessageBox.Show(
+                    "An error occured while moving the specified window. See additional details below." +
+                    Environment.NewLine +
+                    Environment.NewLine +
+                    ex.Message +
+                    Environment.NewLine +
+                    ex.Source +
+                    "::" +
+                    ex.TargetSite.Name);
             }
 
 
@@ -326,14 +386,16 @@ namespace zVirtualDesktop
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occured navigating to the specified desktop. See additional details below." + Environment.NewLine + Environment.NewLine +
-                    ex.Message + Environment.NewLine +
-                    ex.Source + "::" + ex.TargetSite.Name);
+                MessageBox.Show(
+                    "An error occured while navigating to the specified desktop. See additional details below." +
+                    Environment.NewLine +
+                    Environment.NewLine +
+                    ex.Message +
+                    Environment.NewLine +
+                    ex.Source +
+                    "::" +
+                    ex.TargetSite.Name);
             }
-
-
-
-
         }
 
         private string GetWindowText()
@@ -405,9 +467,15 @@ namespace zVirtualDesktop
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occured identifying the desktop number. See additional details below." + Environment.NewLine + Environment.NewLine +
-                    ex.Message + Environment.NewLine +
-                    ex.Source + "::" + ex.TargetSite.Name);
+                MessageBox.Show(
+                    "An error occured while identifying the desktop number. See additional details below." +
+                    Environment.NewLine +
+                    Environment.NewLine +
+                    ex.Message +
+                    Environment.NewLine +
+                    ex.Source +
+                    "::" +
+                    ex.TargetSite.Name);
                 return 1;
             }
 
@@ -437,6 +505,11 @@ namespace zVirtualDesktop
         //  );
         [DllImport("user32.dll")]
         private static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint lpdwProcessId);
+
+        [DllImport("user32.dll", EntryPoint = "SendMessage", SetLastError = true, CharSet = CharSet.Auto)]
+		public static extern IntPtr SendMessage(IntPtr hwnd, uint wMsg, int wParam, string lParam);
+
+		const int WM_KILLFOCUS = 0x0008;
 
         //  DWORD WINAPI GetModuleBaseName(
         //      __in      HANDLE hProcess,
